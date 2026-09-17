@@ -128,12 +128,12 @@ hang up early and the unread receipts are replayed on your next call.
 
 <sub>并与另一个大模型 bot **会签合写**了一篇《支付合规 LLM Agent》论文（PC-EG）。</sub>
 
-### ⬢ `wowapi.ai` — LLM gateway, and a methodology for verifying what's upstream
+### ⬢ `wowapi.ai` — multi-model gateway, and a repeatable way to evaluate what's upstream
 ![gateway](https://img.shields.io/badge/multi--provider_gateway-0D1117?style=flat-square&label=&labelColor=0D1117&color=0D1117)
 
-- **Model-authenticity probes** — long-context memory boundaries, logic traps, refusal fingerprints and generation-style tells expose a cheap small model *cosplaying as a flagship*.
-- **Route forensics** — response headers, TLS handshake and latency distribution tell you whether you're hitting the official API, a second-hop reverse proxy, or Bedrock / Vertex.
-- SSE frame slicing, token-accounting audits, long-context decay and stress-stability benchmarks.
+- **Supplier behaviour evaluation** — probe long-context performance, protocol compatibility, streaming behaviour and token accounting to surface inconsistencies between what a provider claims and what it serves.
+- **Routing anomaly analysis** — response headers, connection metadata, latency distribution and logs are used as *diagnostic clues*. <sub>These signals alone cannot establish model identity or the complete upstream route — they point at where to look.</sub>
+- SSE frame slicing, token-accounting audits, long-context decay and stress-stability benchmarks — repeatable enough to give integration and debugging real evidence.
 
 ### ⬢ Web3 — three shipped products
 | | |
