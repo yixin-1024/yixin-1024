@@ -19,7 +19,7 @@ for a licensed cross-border payment platform. You can also just *call it on the 
 <br/>
 
 <img src="https://img.shields.io/badge/~14B_tokens%2Fmonth-0D1117?style=for-the-badge&logoColor=FF6EC7&label=BURN&labelColor=0D1117&color=0D1117" />
-<img src="https://img.shields.io/badge/7_way_parallel_fleet-0D1117?style=for-the-badge&label=FAN--OUT&labelColor=0D1117&color=0D1117" />
+<img src="https://img.shields.io/badge/7_way_parallel_fleet-0D1117?style=for-the-badge&label=FAN-OUT&labelColor=0D1117&color=0D1117" />
 <img src="https://img.shields.io/badge/6_agent_backends-0D1117?style=for-the-badge&label=RUNTIME&labelColor=0D1117&color=0D1117" />
 <img src="https://img.shields.io/badge/1.6s_first_token_·_330ms_barge--in-0D1117?style=for-the-badge&label=VOICE&labelColor=0D1117&color=0D1117" />
 
