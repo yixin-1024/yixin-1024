@@ -166,7 +166,7 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 ![Kafka](https://img.shields.io/badge/Kafka-0D1117?style=flat-square&logo=apachekafka&logoColor=7DF9FF)
 ![Docker](https://img.shields.io/badge/Docker-0D1117?style=flat-square&logo=docker&logoColor=7DF9FF)
 ![K8s](https://img.shields.io/badge/Kubernetes-0D1117?style=flat-square&logo=kubernetes&logoColor=7DF9FF)
-![AWS](https://img.shields.io/badge/AWS-0D1117?style=flat-square&logo=amazonwebservices&logoColor=7DF9FF)
+![AWS](https://img.shields.io/badge/AWS_Lambda_·_S3_·_DynamoDB-0D1117?style=flat-square&logo=serverless&logoColor=7DF9FF)
 ![GCP](https://img.shields.io/badge/GCP-0D1117?style=flat-square&logo=googlecloud&logoColor=7DF9FF)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-0D1117?style=flat-square&logo=cloudflare&logoColor=7DF9FF)
 
@@ -184,8 +184,13 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=yixin-1024&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7DF9FF&icon_color=FF6EC7&include_all_commits=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=yixin-1024&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7DF9FF&langs_count=8" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yixin-1024&theme=tokyonight" />
+
+<img height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=yixin-1024&theme=tokyonight" />
+<img height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yixin-1024&theme=tokyonight" />
+
+<img height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yixin-1024&theme=tokyonight" />
+<img height="190" src="https://streak-stats.demolab.com?user=yixin-1024&theme=tokyonight&hide_border=true&background=1A1B27" />
 
 </div>
 
