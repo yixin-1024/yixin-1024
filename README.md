@@ -7,18 +7,18 @@
       ╚══════════════════════════════════════════════════════════════════╝
 </pre>
 
-**I don't demo multi-agent systems. I run one in production.**
+**A fleet of heterogeneous LLM agents runs inside my team's chat groups — and it is how I actually work, every day.**
 
-A fleet of heterogeneous LLM agents lives inside my team's chat groups — fanning out 7 ways in parallel,
-cross-signing each other's work, surviving process death, and shipping real money-moving code
-for a licensed cross-border payment platform. You can also just *call it on the phone.*
+Seven sub-agents fan out in parallel. They review each other across model vendors instead of trusting a self-report.
+They outlive the process that spawned them. They carry day-to-day development, debugging and business operations
+for a licensed cross-border payment platform. And you can pick up a phone and talk to them.
 
-<sub>**中文** — 我不是在演示多 Agent，我在生产环境里跑它：一支异构模型舰队常驻在 IM 群里，7 路并行出勤、互相会签核验、跨进程存活，
-每天为一家持牌跨境支付平台交付真实的合规与资金流代码。你还可以直接**打电话**指挥它。</sub>
+<sub>**中文** — 一支异构模型 Agent 舰队常驻在我们的 IM 群里，这就是我每天真实的工作方式：7 路并行出勤、跨厂商模型互相独立复核（而不是听它自报）、跨进程存活；
+承接一家持牌跨境支付平台的日常开发、排障与业务运维。你还可以直接拿起电话跟它说话。</sub>
 
 <br/>
 
-<img src="https://img.shields.io/badge/~14B_tokens%2Fmonth-0D1117?style=for-the-badge&logoColor=FF6EC7&label=BURN&labelColor=0D1117&color=0D1117" />
+<img src="https://img.shields.io/badge/~14B_tokens%2F30d-0D1117?style=for-the-badge&label=API--equivalent&labelColor=0D1117&color=0D1117" />
 <img src="https://img.shields.io/badge/7_way_parallel_fleet-0D1117?style=for-the-badge&label=FAN-OUT&labelColor=0D1117&color=0D1117" />
 <img src="https://img.shields.io/badge/6_agent_backends-0D1117?style=for-the-badge&label=RUNTIME&labelColor=0D1117&color=0D1117" />
 <img src="https://img.shields.io/badge/1.6s_first_token_·_330ms_barge--in-0D1117?style=for-the-badge&label=VOICE&labelColor=0D1117&color=0D1117" />
@@ -29,18 +29,19 @@ for a licensed cross-border payment platform. You can also just *call it on the 
 
 ## ▚ SIGNAL · 硬数据
 
-> Every number below is measured on a system that is running right now. No stars, no funding, no vanity metrics.
-> 以下每个数字都来自正在跑的生产系统实测口径。
+> No stars, no funding, no awards. Each row states **what was measured and where it came from**, so you can discount it yourself.
+> 以下每个数字都标注了口径与来源；没有测量协议的就写成单次实测，不升级成普遍结论。
 
-| | |
-|---|---|
-| **~14,000,000,000** | tokens / 30 days, API-equivalent · peak **1.7B in a single day** <br/> <sub>近 30 天大模型用量，单日峰值 17 亿 token</sub> |
-| **7** | independent sub-sessions fanned out from one request, each outliving the turn that spawned it <br/> <sub>单次 fan-out 最多 7 个跨轮存活的子会话</sub> |
-| **6 / 8** | agent backends (Claude Code · Codex · opencode+Gemini · MiMo · Grok · Antigravity) / bots co-existing in one chat group <br/> <sub>6 种 Agent 后端 · 8 个机器人同群互相 @ 协作</sub> |
-| **30+** | production Skills running real compliance, onboarding, card-issuing and reconciliation flows <br/> <sub>30+ 生产级业务 Skill</sub> |
-| **1.6–1.7s / 330ms / 31–44ms** | voice: end-to-end first response / perceived barge-in / agent tool round-trip <br/> <sub>语音链路首响 / 打断体感 / 工具调用往返</sub> |
-| **39GB · 8,652 files** | fully migrated by an unattended incremental sync agent <br/> <sub>无人值守增量同步已全量跑完</sub> |
-| **3 agent CLIs** | running natively on an **unrooted Android phone** — exec perms, in-place `PT_INTERP` rewrite, DNS, app-seccomp, all four gates cracked <br/> <sub>无 root 手机上原生跑通 3 个 agent CLI</sub> |
+| metric | what it actually is | 口径 / 来源 |
+|---|---|---|
+| **~14,000,000,000 tokens** | LLM usage over the last 30 days, **API-equivalent accounting**; single-day peak ~1.7B <br/> <sub>近 30 天用量，按 API 等值口径统计</sub> | 用量后台统计 · 2026-09 |
+| **7** | independent sub-sessions fanned out from one request, each outliving the turn that spawned it <br/> <sub>单次 fan-out 最多 7 个跨轮存活子会话</sub> | cc-lark 生产配置上限 |
+| **6 / 8** | agent backends wired in (`opencode+Gemini` counted as one integration) / bots co-existing and @-ing each other in one chat group <br/> <sub>6 种 Agent 后端接入 · 8 个机器人同群协作</sub> | cc-lark 生产部署清单 · 2026-09 |
+| **30+** | production Skills covering compliance screening, onboarding, card issuing, reconciliation and ops <br/> <sub>30+ 生产级业务 Skill</sub> | SPXpay / Regtank 生产仓库 |
+| **1.6–1.7s** | end-to-end voice first response **on the current link** — not a claim about any model's floor <br/> <sub>现有链路实测首响，非普遍结论</sub> | cclark-voice 日志实测 · 2026-09 |
+| **330ms / 31–44ms** | perceived barge-in latency / agent tool-call round-trip <br/> <sub>打断体感 / 工具调用往返</sub> | 同上，单机实测 |
+| **39GB · 8,652 files** | fully migrated by an unattended incremental sync agent <br/> <sub>无人值守增量同步已全量跑完</sub> | 任务完成记录 |
+| **3 agent CLIs** | running natively on an **unrooted Android phone** — exec perms, in-place `PT_INTERP` rewrite, DNS and app-seccomp all worked around <br/> <sub>无 root 手机上原生跑通 3 个 agent CLI</sub> | 实机跑通（nubia / 一加） |
 
 ---
 
@@ -48,29 +49,36 @@ for a licensed cross-border payment platform. You can also just *call it on the 
 
 <div align="center">
 
-### 塔奇克马 · **TACHIKOMA** — an agent swarm that performs 「並列化」
+### 塔奇克马 · **TACHIKOMA**
+### *"Shared memory. Not a shared verdict."*
+**「共享记忆，不必共享同一个判断。」**
+
 **@ EvoTavern Agent Hackathon · Shenzhen · 2026.09**
 
 </div>
 
-In *Ghost in the Shell*, the Tachikoma spend every night **parallelizing**: they patrol separately all day,
-sync their memories at night, then re-diverge into distinct personalities by morning.
+Borrowing an image from *Ghost in the Shell*: a squad of small minds that patrol separately, then pool what they learned —
+and still come back as individuals rather than one averaged opinion.
 
-That is exactly the missing half of today's multi-agent stacks — **we know how to fan out. We don't know how to merge experience.**
+The question I want to attack on site is narrow and concrete:
+**of everything the agents discovered this round, which findings have earned the right to enter the next round's shared memory?**
 
 ```
-   N heterogeneous minds        memory diff          shared ghost        re-divergence
-   (different backends          conflict       ──▶   merged into   ──▶   with new
-    = different personalities)  resolution           one substrate       individuality
-            │                                                                │
-            └──────────────────────  next patrol  ◀───────────────────────────┘
+   parallel patrol        candidate findings        shared memory          next round
+   (N sub-agents,    ──▶  evidence-checked,   ──▶   sourced · versioned ──▶ divergence
+    独立出勤)              conflicts parked          · revocable            preserved
+        ▲                                                                      │
+        └──────────────────────────────────────────────────────────────────────┘
 ```
 
-Pick up a handset, dial it, speak a task. The swarm deploys. The wall shows what each Tachikoma is
-thinking and *where they disagree*. When it's done, **it calls you back.**
+| | |
+|---|---|
+| **已有可复用 · already built** | multi-agent parallel dispatch with cross-turn execution · cross-model independent verification (cosign) · native-phone-call voice entry |
+| **赛期拟新增 · to build on site** | evidence-checking of candidate findings & parking contradictions · shared memory with provenance, versioning and revocability · visualizing where agents disagree · a controlled check on whether the next round's behaviour actually changed |
 
-<sub>致敬点：塔奇克马每晚做「并行化」。技术映射：异构模型子 Agent 各带性格并行出勤 → 记忆 diff / 冲突消解 / 合并为共享记忆 → 下一轮再分化。
-现场评委可拿起电话呼叫它，大屏实时显示每只塔奇克马的思考与分歧，干完活它主动打电话回来汇报。</sub>
+On site you can pick up a handset, dial in and speak a task. Completion results are **interjected into the live call**;
+hang up early and the unread receipts are replayed on your next call.
+<sub>（**主动回拨**——干完活它自己打给你——目前**未实现**，列为赛期探索项，不作为演示成立的前提。）</sub>
 
 ---
 
@@ -81,34 +89,34 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 ![Python](https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=7DF9FF)
 ![state](https://img.shields.io/badge/in_production-0D1117?style=flat-square&label=state&labelColor=0D1117&color=0D1117)
 
-> **Flagship / 旗舰.** Mainstream CLI agents are single-turn, single-body, and lose everything when the process dies. This one doesn't.
+> **Flagship / 旗舰.** My execution environment starts an agent every turn and kills it when the turn ends. Most of this project exists to make useful work survive that.
 
-- **Fleet orchestration** — one request fans out into ≤7 independent sub-sessions. They are hosted under a resident process, **survive the turn that created them**, auto-report back, and wake the parent agent to aggregate.
-- **Cross-model cosign** — Claude / GPT / Gemini / opencode / MiMo / Grok / Antigravity each join the same group as separate bots. One implements; another must return to **ground truth** (decode the chain, query the ledger, drive the real UI headlessly) to verify. Two signatures or it doesn't ship.
-- **Runtime MCP that breaks the turn lifecycle** — a self-built MCP server injects 13 runtime tools (`wake_me_in`, `dispatch_task`, `handover`, `schedule_cron`…) into an agent that is *spawned and killed every turn*, giving it day-scale self-direction.
+- **Fleet orchestration** — one request fans out into ≤7 independent sub-sessions. They are hosted under a resident process, **outlive the turn that created them**, auto-report back, and wake the parent agent to aggregate.
+- **Cross-model cosign** — Claude, GPT, Gemini and other heterogeneous agents each join the same group as separate bots. One implements; another must return to **ground truth** to verify — decode the chain, query the ledger, drive the real UI headlessly, curl the actual endpoint — rather than accept a self-report. A model checking its own work shares its own blind spots; a different vendor's model doesn't. Two signatures or it doesn't ship.
+- **Runtime MCP across turn boundaries** — a self-built MCP server injects 13 runtime tools (`wake_me_in`, `dispatch_task`, `handover`, `schedule_cron`…) so a long task keeps running and its result lands back in the original thread, giving the agent day-scale self-direction.
 - **Crash-resumable** — task state hits disk; a restarted process picks the work back up.
 - Lark / Feishu / Telegram channels · multi-tenant shape (Org→Employee→Agent, one Docker sandbox per person).
 
 ### ⬢ `CarVoice / CCVoice` — call a phone number, command an agent swarm
 ![Java](https://img.shields.io/badge/Android_Native_Java-0D1117?style=flat-square&logo=android&logoColor=7DF9FF)
 ![Gemini](https://img.shields.io/badge/Gemini_Live-0D1117?style=flat-square&logo=googlegemini&logoColor=FF6EC7)
-![state](https://img.shields.io/badge/two_handsets_live-0D1117?style=flat-square&label=state&labelColor=0D1117&color=0D1117)
+![state](https://img.shields.io/badge/2026.09_·_two_handsets_live-0D1117?style=flat-square&label=state&labelColor=0D1117&color=0D1117)
 
 > Embodiment, without a robot. When you're driving, a touchscreen means *disabled* — which is exactly when an agent is most worth calling.
 
 - Dial `8888` in the **stock system dialer**. Android Telecom `CALL_PROVIDER` yields a genuine system call UI — no privileged build, no SIM required, car speakers and Bluetooth handled by the OS for free.
-- Self-built **VoiceLink**: duplex audio, adaptive VAD, millisecond barge-in (playback queue + turn tokens to kill the backlog from 4× model push).
+- Self-built **VoiceLink**: duplex audio, adaptive VAD, millisecond barge-in (playback queue + turn tokens to clear the backlog from 4× model push).
 - Self-built anti-aliasing streaming resampler, 8k/16k/24k/48k.
 - Uplink over Cloudflare Access + HMAC-SHA256 double auth → Gemini 3.8 Live full duplex.
-- **The part I'm proudest of — proactive async interjection:** a long engineering task dispatched by voice runs on the resident bot; when it finishes, the completion event is injected into the live conversation *in the gap between the model's sentences*. It finishes the work in the background and casually tells you, mid-call. Hang up early? It replays the unread receipts on your next call.
-- Measured: **-30dB** of speaker bleed is enough to false-trigger barge-in → switched to Manual VAD + client-side physical silence cuts. Root cause, not a band-aid.
+- **Async interjection:** a long engineering task dispatched by voice runs on the resident bot; when it finishes, the completion event is injected into the live conversation *in the gap between the model's sentences*. Hang up early and the unread receipts replay on your next call. <sub>（主动回拨未实现。）</sub>
+- Measured on this link: **-30dB** of speaker bleed was enough to false-trigger barge-in → switched to Manual VAD + client-side physical silence cuts, after which it stopped false-triggering in that setup.
 
 ### ⬢ Vertical agents — compliance & cross-border payments, fully automated
 ![Golang](https://img.shields.io/badge/Golang-0D1117?style=flat-square&logo=go&logoColor=7DF9FF)
 ![state](https://img.shields.io/badge/regulated_production-0D1117?style=flat-square&label=state&labelColor=0D1117&color=0D1117)
 
-> The scarcest thing here isn't the agent framework. It's an agent framework that is allowed to touch **regulated money**.
-> Processes that used to bounce between departments for days are now one sentence in a chat group.
+> The scarce part here isn't the agent framework. It's an agent framework that is allowed anywhere near **regulated money** —
+> and the auditability that has to come with it. Processes that used to bounce between departments are now one sentence in a chat group.
 
 | domain | what the agents actually do |
 |---|---|
@@ -120,7 +128,7 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 
 <sub>并与另一个大模型 bot **会签合写**了一篇《支付合规 LLM Agent》论文（PC-EG）。</sub>
 
-### ⬢ `wowapi.ai` — LLM gateway, and a methodology for catching liars upstream
+### ⬢ `wowapi.ai` — LLM gateway, and a methodology for verifying what's upstream
 ![gateway](https://img.shields.io/badge/multi--provider_gateway-0D1117?style=flat-square&label=&labelColor=0D1117&color=0D1117)
 
 - **Model-authenticity probes** — long-context memory boundaries, logic traps, refusal fingerprints and generation-style tells expose a cheap small model *cosplaying as a flagship*.
@@ -132,7 +140,7 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 |---|---|
 | **SeeSaw** `seesaw.fun` | prediction market · pure-algorithm **LMSR** market maker + matching engine in Go (Gin) · serverless on AWS Lambda · async on-chain proof-of-trade · Flutter dual-platform + responsive web |
 | **bitx** `bitx.now` | EVM + Solana dual-chain social/prediction super-app · Privy seamless auth · MoonPay fiat on-ramp · **ERC-4337 Paymaster gasless** · self-hosted Matrix (Dendrite / Tuwunel) |
-| **Sigma Money** `sigma.money` | BNB Chain over-collateralized stablecoin **bnbUSD** + yield aggregator, plugged into the Curve ecosystem · **historical TVL peak > $6.5M** |
+| **Sigma Money** `sigma.money` | BNB Chain over-collateralized stablecoin **bnbUSD** + yield aggregator, plugged into the Curve ecosystem · **protocol TVL, historical peak > $6.5M** <sub>（协议规模口径，非个人收入或融资）</sub> |
 
 ---
 
@@ -176,7 +184,7 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 ![Ethereum](https://img.shields.io/badge/EVM_·_BNB_Chain-0D1117?style=flat-square&logo=ethereum&logoColor=FFD166)
 ![Bitcoin](https://img.shields.io/badge/BTC_Taproot_·_Ordinals-0D1117?style=flat-square&logo=bitcoin&logoColor=FFD166)
 ![Chainlink](https://img.shields.io/badge/Chainlink-0D1117?style=flat-square&logo=chainlink&logoColor=FFD166)
-![WiFi6](https://img.shields.io/badge/Wi--Fi_6_PHY%2FMAC_stack-0D1117?style=flat-square&logo=espressif&logoColor=FFD166)
+![WiFi6](https://img.shields.io/badge/Wi--Fi_6_protocol_stack-0D1117?style=flat-square&logo=espressif&logoColor=FFD166)
 
 ---
 
@@ -212,12 +220,13 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 | 2023.02–2023.08 | 华为武汉研究所（上海海思）· 嵌入式研发 | Wi-Fi 6 芯片协议栈、固件 ROM 化、系统级自动化测试框架，保障 SoC 一次性量产 |
 | 2021.07–2023.01 | 多益网络 · 后端研发 | 云桥企业级 IM 微服务、Kafka 高吞吐、Neo4j 知识图谱 |
 
-**我在做的事，一句话**
+**我在解决的问题，一句话**
 
-主流 CLI Agent 是「单轮、单体、进程一死全丢」；多 Agent 大多停在框架示意图上。
-我把它做成了每天上班用的生产环境：**舰队并行**（一条需求 fan-out ≤7 个跨轮存活的子会话）、
-**跨模型会签**（一方实现、另一方回到 ground truth 独立复核，双签才算交付）、
-**运行时 MCP**（给每轮即被杀的 Agent 注入 13 个运行时工具，获得以天为单位的自驱动能力）、
+我的执行环境是「每轮启动、轮末结束」的：Agent 每轮被拉起，轮末就被杀掉。
+所以我要让**耗时任务继续跑，并把结果送回原来的话题**——这催生了四件事：
+**舰队并行**（一条需求 fan-out ≤7 个跨轮存活的子会话）、
+**跨模型独立复核**（一方实现、另一方回到 ground truth 核对，双签才算交付）、
+**运行时 MCP**（13 个运行时工具，让 Agent 具备以天为单位的自驱动能力）、
 **崩溃续跑**（状态落盘，进程重启接着干）。再往上，加了一个**系统原生电话**的入口。
 
 **开源 & 上游**
@@ -241,9 +250,6 @@ thinking and *where they disagree*. When it's done, **it calls you back.**
 
 <br/>
 
-<sub>
-<i>"Your effort to remain what you are is what limits you."</i><br/>
-— Puppet Master, <b>Ghost in the Shell</b> (1995)
-</sub>
+<sub><i>Shells are forged overnight. The ghost is the part you have to keep earning.</i></sub>
 
 </div>
